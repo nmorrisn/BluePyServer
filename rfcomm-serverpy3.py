@@ -1,6 +1,7 @@
 import socket
 import subprocess
 import RPi.GPIO as GPIO
+from Modules.buildobject import basicobject
 ''
 
 GPIO.setmode(GPIO.BCM)
@@ -22,24 +23,18 @@ try:
     
     client, address = s.accept()
 
+
     print("Accepted connection from ", address)
     print("Beginning testing...")
     while 1:
         data = client.recv(size)
+        doObject = basicobject()
         if data == b'1':
-            GPIO.output(17,True)
-            data = b'Light is on!'
-            print("Light is on!")
+            data = doObject.GPIO_on()
         if data == b'2':
-            GPIO.output(17,False)
-            data = b'Light is off!'
-            print("Light is off!")
+            data = doObject.GPIO_off()
         if data == b'3':
-            data = b'Connection terminated by user'
-            print("Connection terminated by user")
-            client.send(data)
-            client.close()
-            s.close()
+            data = doObject.disconnect(s,client)
         client.send(data)
         
 except:
