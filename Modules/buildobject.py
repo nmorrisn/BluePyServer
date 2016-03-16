@@ -2,6 +2,8 @@ import socket
 import subprocess
 import RPi.GPIO as GPIO
 
+from Modules.glucObject import glucObject
+
 class basicobject:
 
     def GPIO_on(self):
@@ -23,4 +25,14 @@ class basicobject:
         client.close()
         s.close()
         return data
+
+    def getGluc(self,s,client):
+        getGlucObj = glucObject()
+        data = b'Getting values from Glucometer'
+        print("Getting values from Glucometer")
+        client.send(data)
+        glucResults = getGlucObj.getResults()
+        return glucResults
+        
+        
     
