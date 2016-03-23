@@ -35,6 +35,8 @@ try:
             data = doObject.GPIO_off()
         if data == b'3':
             data = doObject.disconnect(s,client)
+        if data == b'4':
+            data = doObject.getGluc(s,client)
         client.send(data)
         
 except:

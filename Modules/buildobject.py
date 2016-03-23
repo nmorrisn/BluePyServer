@@ -32,6 +32,7 @@ class basicobject:
         print("Getting values from Glucometer")
         client.send(data)
         glucResults = getGlucObj.getResults()
+        print(glucResults)
         return glucResults
         
         

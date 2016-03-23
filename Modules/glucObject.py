@@ -1,7 +1,7 @@
 import subprocess
 import os.path
 
-from Modules.getJSON import getJSONObject
+from Modules.getJSONObject import getJSONObject
 
 class glucObject:
 
@@ -15,5 +15,6 @@ class glucObject:
         f.close()
         getJSON = getJSONObject()
         glucResults = getJSON.jsonify(glucResults)
+        return glucResults
         
         
