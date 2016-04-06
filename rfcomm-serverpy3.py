@@ -30,13 +30,9 @@ try:
         data = client.recv(size)
         doObject = basicobject()
         print(data)
-        if data == b'1':
-            data = doObject.GPIO_on()
-        if data == b'2':
-            data = doObject.GPIO_off()
-        if data == b'3':
+        if data == b'disconnect':
             data = doObject.disconnect(s,client)
-        if data == b'temp':
+        if data == b'glucose':
             data = doObject.getGluc()
         client.send(data)
         
