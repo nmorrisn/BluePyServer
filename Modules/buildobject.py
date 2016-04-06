@@ -26,11 +26,11 @@ class basicobject:
         s.close()
         return data
 
-    def getGluc(self,s,client):
+    def getGluc(self):
         getGlucObj = glucObject()
-        data = b'Getting values from Glucometer'
+        #data = b'Getting values from Glucometer'
         print("Getting values from Glucometer")
-        client.send(data)
+        #client.send(data)
         glucResults = getGlucObj.getResults()
         print(glucResults)
         return glucResults

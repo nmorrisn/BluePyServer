@@ -29,14 +29,15 @@ try:
     while 1:
         data = client.recv(size)
         doObject = basicobject()
+        print(data)
         if data == b'1':
             data = doObject.GPIO_on()
         if data == b'2':
             data = doObject.GPIO_off()
         if data == b'3':
             data = doObject.disconnect(s,client)
-        if data == b'4':
-            data = doObject.getGluc(s,client)
+        if data == b'temp':
+            data = doObject.getGluc()
         client.send(data)
         
 except:

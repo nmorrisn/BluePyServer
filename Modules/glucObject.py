@@ -13,8 +13,7 @@ class glucObject:
         f = open(completeName, "r")
         glucResults = f.readline()
         f.close()
-        getJSON = getJSONObject()
-        glucResults = getJSON.jsonify(glucResults)
+        glucResults = str.encode(glucResults)
         return glucResults
         
         
