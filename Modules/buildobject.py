@@ -3,6 +3,7 @@ import subprocess
 import RPi.GPIO as GPIO
 
 from Modules.glucObject import glucObject
+from Modules.bpObject import bpObject
 
 class basicobject:
 
@@ -18,8 +19,15 @@ class basicobject:
         getGlucObj = glucObject()
         print("Getting values from Glucometer")
         glucResults = getGlucObj.getResults()
-        print("Glucometer results: %d",glucResults)
+        print("Glucometer results: ",glucResults)
         return glucResults
+
+    def getBP(self):
+        getBPObj = bpObject()
+        print("Getting values from Blood Pressure Monitor")
+        bpResults = getBPObj.getResults()
+        print("Glucometer results: ",bpResults)
+        return bpResults
         
         
     

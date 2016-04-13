@@ -1,17 +1,16 @@
 import subprocess
 import os.path
+import array
 
-class glucObject:
+
+class bpObject:
 
     def getResults(self):
         pathtoResults = '/home/pi/eHealth_raspberrypi_v2.4'
-        nameofFile = 'glu.txt'
-
+        nameofFile = 'bp.txt'
         completeName = os.path.join(pathtoResults, nameofFile)
         f = open(completeName, "r")
-        glucResults = f.readline()
+        bpResults = f.readline()
         f.close()
-        glucResults = str.encode(glucResults)
-        return glucResults
-        
-        
+        bpResults = str.encode(bpResults)
+        return bpResults

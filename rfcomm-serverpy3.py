@@ -34,6 +34,8 @@ try:
             data = doObject.disconnect(s,client)
         if data == b'glucose':
             data = doObject.getGluc()
+        if data == b'getbp':
+            data = doObject.getBP()
         client.send(data)
         
 except:
