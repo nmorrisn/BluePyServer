@@ -26,7 +26,7 @@ class basicobject:
         getBPObj = bpObject()
         print("Getting values from Blood Pressure Monitor")
         bpResults = getBPObj.getResults()
-        print("Glucometer results: ",bpResults)
+        print("Blood Pressure results: ",bpResults)
         return bpResults
         
         
