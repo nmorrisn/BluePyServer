@@ -8,9 +8,7 @@ from Modules.bpObject import bpObject
 class basicobject:
 
     def disconnect(self,s,client):
-        data = b'Connection terminated by user'
         print("Connection terminated by user")
-        client.send(data)
         client.close()
         s.close()
         return data
