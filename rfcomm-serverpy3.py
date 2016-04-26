@@ -8,17 +8,20 @@ port = 1 #default port
 backlog = 1
 size = 1024
 
-while (s=None): #continuously try to open socket until it succeeds
+s = None
+while s is None: #continuously try to open socket until it succeeds
     try:
         s = socket.socket(socket.AF_BLUETOOTH, socket.SOCK_STREAM, socket.BTPROTO_RFCOMM)
     except OSError as msg:
         s = None
+        print(msg)
         continue
     try:
         s.bind((hostMACAddress,port))
         s.listen(backlog)
     except OSError as msg:
         s.close()
+        print(msg)
         s = None
         continue
 
