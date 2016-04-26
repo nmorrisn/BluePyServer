@@ -3,7 +3,6 @@ Description=Calls shell script to run BluePyServer (rfcomm-serverpy3)
 
 [Service]
 Type=oneshot
-ExecStart=/home/pi/bluepyenv/BluePyServer/runServer.sh
 
 [Install]
 WantedBy=multi-user.target

@@ -47,6 +47,5 @@ try:
         
 except:
     print("Closing socket")
-    GPIO.output(17,False)
     client.close()
     s.close()
