@@ -1,22 +1,26 @@
 import socket
 import subprocess
-import RPi.GPIO as GPIO
 from Modules.buildobject import basicobject
 ''
 
-GPIO.setmode(GPIO.BCM)
-GPIO.setwarnings(False)
-GPIO.setup(17, GPIO.OUT)
-GPIO.output(17,False)
-
-hostMACAddress = '00:19:86:00:21:E5'
-port = 1
+hostMACAddress = '00:19:86:00:21:E5' #address of Pi
+port = 1 #default port
 backlog = 1
 size = 1024
 
-s = socket.socket(socket.AF_BLUETOOTH, socket.SOCK_STREAM, socket.BTPROTO_RFCOMM)
-s.bind((hostMACAddress,port))
-s.listen(backlog)
+while (s=None): #continuously try to open socket until it succeeds
+    try:
+        s = socket.socket(socket.AF_BLUETOOTH, socket.SOCK_STREAM, socket.BTPROTO_RFCOMM)
+    except OSError as msg:
+        s = None
+        continue
+    try:
+        s.bind((hostMACAddress,port))
+        s.listen(backlog)
+    except OSError as msg:
+        s.close()
+        s = None
+        continue
 
 try:
     print("Waiting for connection on RFCOMM channel %d" % port)
