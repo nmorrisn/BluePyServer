@@ -1,6 +1,5 @@
 import socket
 import subprocess
-import RPi.GPIO as GPIO
 
 from Modules.glucObject import glucObject
 from Modules.bpObject import bpObject
